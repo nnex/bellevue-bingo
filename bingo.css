@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  height: 100vh;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+td {
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid black;
+  width: 20%;
+  height: 15vh;
+  width: 15vh;
+}
+
+.selected {
+  background: #7F9FAF;
+  color: #FFF;
+}
+
+button {
+  display: block;
+}
