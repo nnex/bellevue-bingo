@@ -7,9 +7,22 @@
     <link rel="stylesheet" href="bingo.css">
   </head>
   <body>
-    <table id="card">
-    </table>
-    <button onclick="rebuildCard()";>Regenerate Your Board</button>
+    <div id='left-menu'>
+      <button id="new-card" onclick="newCard()";>New Card</button>
+      <button id="new-list" class="noshow" onclick="newList()";>New List</button>
+      <form>
+        <input type="radio" id="caller" name="mode" value="caller" onClick="showList()">
+        <label for="caller">Caller</label><br>
+        <input type="radio" id="player" name="mode" value="player" checked onCLick="showCard()">
+        <label for="player">Player</label><br>
+      </form>
+    </div>
+    <div id="card-wrapper">
+      <table id="card">
+      </table>
+    </div>
+    <div id="list" class="noshow">
+    </div>
   </body>
 </html>
 

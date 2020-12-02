@@ -1,18 +1,32 @@
+* {
+  margin: 0;
+  justify-content: center;
+  font-family: Menlo;
+  font-size: 2vh;
+  transition-duration: .2s;
+  user-select: none;
+}
+
+#card-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
 body {
   display: flex;
   height: 100vh;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
 }
 
 td {
   margin: 0 auto;
   text-align: center;
   border: 3px solid black;
-  width: 20%;
-  height: 15vh;
-  width: 15vh;
+  height: 16vh;
+  width: 16vh;
+  padding: 1vh;
 }
 
 .selected {
@@ -22,4 +36,57 @@ td {
 
 button {
   display: block;
+}
+
+#left-menu {
+  padding-top: 10vh;
+  height: 100%;
+  width: 20vh;
+}
+
+#left-menu * {
+  margin: 10% auto;
+  text-align: center;
+  padding: 1vh;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]+label {
+  line-height: 6vh;
+  border-bottom: 2px solid rgba(0,0,0,0);
+  transition-duration: .5s;
+  border-radius: 5px;
+  height: 1vh;
+}
+
+input[type="radio"]:checked+label {
+  border-bottom: 2px solid rgba(0,0,0,1);
+  background-color: #DEF;
+}
+
+.noshow {
+  display: none;
+}
+
+#list {
+  width: 96vh;
+  margin: 10vh 0;
+}
+
+#list div {
+  margin: 1vh 1vh;
+  padding: 1vh 1vh;
+  clear: both;
+  float: left;
+  background-color: #4B6;
+}
+
+#list div.read {
+  float: right;
+  background-color: #DEF;
+  color: #484848;
+  border-radius: 2vh;
 }
