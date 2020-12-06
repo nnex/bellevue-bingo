@@ -80,11 +80,16 @@ body {
 td {
   margin: 0 auto;
   text-align: center;
-  border: 3px solid black;
+  border: 2px solid black;
   height: 16vh;
   width: 16vh;
   padding: 1vh;
   background-color: $background;
+}
+
+td:hover {
+  color: #FFF;
+  border-color: #FFF;
 }
 
 .selected {
@@ -147,6 +152,7 @@ input[type="radio"]:checked+label {
 #list {
   width: 96vh;
   margin: 10vh 0;
+  overflow: scroll;
 }
 
 #list div {
