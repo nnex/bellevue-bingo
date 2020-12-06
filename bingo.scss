@@ -113,13 +113,32 @@ button:hover {
 #left-menu {
   padding-top: 10vh;
   height: 100%;
-  width: 20vh;
+  width: 16vw;
 }
 
 #left-menu * {
   margin: 10% auto;
   text-align: center;
   padding: 1vh;
+  color: #EEE;
+}
+
+#player-rules:hover, #caller-rules:hover{
+  background: $selected;
+}
+
+#left-menu *:hover{
+  color: #FFF;
+}
+
+#left-menu p {
+  text-align: left;
+  color: #DDD;
+  margin: 0 0 .1vh;
+}
+
+#left-menu h2 {
+  color: #DDD;
 }
 
 input[type="radio"] {
@@ -172,4 +191,41 @@ input[type="radio"]:checked+label {
   background-color: $selected;
   color: #E1EFFF;
   border-radius: 2vh;
+}
+
+#bingo-modal {
+  display: None;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 20vh;
+  color: #B72;
+  text-align: center;
+  align-items: center;
+  padding: 0 5vh 0 10vh;
+  box-shadow: 0 0 29vh -4vh #C96;
+  background-color: rgba(20,28,40,.85);
+  margin: 8vh;
+  text-shadow: 0 0 1vh #B72, 0 0 2vh #000;
+}
+
+#bingo-modal.shown {
+  display: flex;
+  opacity: 0;
+  animation: fadeIntoFrame 1s forwards, glow 3.325s infinite;
+}
+
+@keyframes glow {
+  50% {
+    box-shadow: 0 0 35vh 5vh #FA7;
+    color: #FA7;
+    text-shadow: 0 0 1vh #FA7, 0 0 3vh #000;
+  }
+}
+
+@keyframes fadeIntoFrame {
+  90% {opacity: 1;}
+  100% {opacity: 1;}
 }

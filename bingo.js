@@ -127,7 +127,7 @@ function createCard() {
       row.appendChild(cell);
       let item;
 
-    if (i===2 && j===2) {
+      if (i===2 && j===2) {
         cell.classList.add("selected");
         cell.style.backgroundImage = "url('https://mybuildingpermit.com/sites/default/files/logo/logos-bellevue2-01.png')";
         cell.style.backgroundSize = "cover";
@@ -139,11 +139,38 @@ function createCard() {
         item = items[index];
         items.splice(index, 1);
         cell.innerHTML = item;
-        cell.onclick = function() { this.classList.toggle("selected"); };
+        cell.onclick = cellOnClick;
       }
-
+      cell.classList.add("row"+i);
+      cell.classList.add("column"+j);
+      if (i===j) {
+        cell.classList.add('diagonal-dr');
+      }
+      if (i+j===4) {
+        cell.classList.add('diagonal-ur');
+      }
     }
   }
+}
+
+function cellOnClick() {
+  console.log(this);
+  this.classList.toggle("selected");
+  for (i=0; i<5; i++) {
+    let col = document.getElementsByClassName('column'+i+' selected')
+    if (col.length === 5) { youWon(); }
+    let row = document.getElementsByClassName('row'+i+' selected')
+    if (row.length === 5) { youWon(); }
+  }
+  let ddr = document.getElementsByClassName('diagonal-dr'+' selected')
+  if (ddr.length === 5) { youWon(); }
+  let dur = document.getElementsByClassName('diagonal-ur'+' selected')
+  if (dur.length === 5) { youWon(); }
+}
+
+function youWon() {
+  let modal = document.getElementById('bingo-modal');
+  modal.classList.toggle('shown');
 }
 
 function clearCard() {
@@ -171,14 +198,18 @@ function newList() {
 function showList() {
   document.getElementById("card").classList.add("noshow");
   document.getElementById("new-card").classList.add("noshow");
+  document.getElementById("player-rules").classList.add("noshow");
   document.getElementById("list").classList.remove("noshow");
   document.getElementById("new-list").classList.remove("noshow");
+  document.getElementById("caller-rules").classList.remove("noshow");
 }
 function showCard() {
   document.getElementById("list").classList.add("noshow");
   document.getElementById("new-list").classList.add("noshow");
+  document.getElementById("caller-rules").classList.add("noshow");
   document.getElementById("card").classList.remove("noshow");
   document.getElementById("new-card").classList.remove("noshow");
+  document.getElementById("player-rules").classList.remove("noshow");
 }
 
 function createList() {
@@ -204,6 +235,12 @@ function createList() {
 function createGame() {
   createCard();
   createList();
+}
+
+function reset() {
+  document.getElementById("bingo-modal").classList.remove("shown");
+  newCard();
+  newList();
 }
 
 if (document.addEventListener) document.addEventListener("DOMContentLoaded", createGame, false);

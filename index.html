@@ -16,6 +16,23 @@
         <input type="radio" id="player" name="mode" value="player" checked onCLick="showCard()">
         <label for="player">Player</label><br>
       </form>
+      <div id="player-rules">
+        <h2>Player Rules</h2>
+        <p>Pay attention to the items read out by the caller.</p>
+        <p>If you hear an item that pertains to you, click that square.</p>
+        <p>Once you have 5 squares in a row, column, or diagonal all marked,
+          you have a 'bingo' and you've won!</p>
+        <p>If you get a bingo, please let your caller know! 🙂</p>
+      </div>
+      <div id="caller-rules" class="noshow">
+        <h2>Caller Rules</h2>
+        <p>Prior to starting, ensure that all players know the rules.</p>
+        <p>Once gameplay begins read one item every so often, pausing to give
+          the players a chance to search their board for the read item.</p>
+        <p>Once a player indicates that they have bingo, have them read aloud
+          their string of five items that won the game for them. 🙂</p>
+        </p>
+      </div>
     </div>
     <div id="card-wrapper">
       <table id="card">
@@ -23,6 +40,7 @@
     </div>
     <div id="list" class="noshow">
     </div>
+    <div id="bingo-modal" onClick="reset()">BINGO!</div>
     <div id="snow-wrapper">
       <div class="snow"></div>
       <div class="snow"></div>
