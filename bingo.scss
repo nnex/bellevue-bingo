@@ -1,0 +1,169 @@
+$background: rgba(100, 140, 140, 0.5);
+$selected: rgba(0.3,0.3,0.3,0.6);
+$button-hover: rgb(43 94 94 / 50%);
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+.snow {
+  $total: 200;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+
+  @for $i from 1 through $total {
+    $random-x: random(1000000) * 0.0001vw;
+    $random-offset: random_range(-100000, 100000) * 0.0001vw;
+    $random-x-end: $random-x + $random-offset;
+    $random-x-end-yoyo: $random-x + ($random-offset / 2);
+    $random-yoyo-time: random_range(30000, 80000) / 100000;
+    $random-yoyo-y: $random-yoyo-time * 100vh;
+    $random-scale: random(10000) * 0.0001;
+    $fall-duration: random_range(10, 30) * 1s;
+    $fall-delay: random(30) * -1s;
+
+    &:nth-child(#{$i}) {
+      opacity: random(10000) * 0.0001;
+      transform: translate($random-x, -10px) scale($random-scale);
+      animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+    }
+
+    @keyframes fall-#{$i} {
+      #{percentage($random-yoyo-time)} {
+        transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+      }
+      to {
+        transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+      }
+    }
+  }
+}
+
+* {
+  margin: 0;
+  justify-content: center;
+  font-family: Menlo;
+  font-size: 2vh;
+  transition-duration: .2s;
+  user-select: none;
+}
+
+#snow-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+#card-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+td {
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid black;
+  height: 16vh;
+  width: 16vh;
+  padding: 1vh;
+  background-color: $background;
+}
+
+.selected {
+  background: $selected;
+  color: #FFF;
+}
+
+button {
+  display: block;
+  border-radius: 5px;
+  border: 0;
+  background-color: rgba(100, 140, 140, 0.5);
+  color: #E1EFFF;
+}
+
+button:hover {
+  color: #FFFFFF;
+  background-color: $button-hover;
+}
+
+#left-menu {
+  padding-top: 10vh;
+  height: 100%;
+  width: 20vh;
+}
+
+#left-menu * {
+  margin: 10% auto;
+  text-align: center;
+  padding: 1vh;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]+label {
+  line-height: 6vh;
+  border-bottom: 2px solid rgba(0,0,0,0);
+  transition-duration: .5s;
+  border-radius: 5px;
+  height: 1vh;
+  color: #E1EFFF;
+}
+
+input[type="radio"]+label:hover {
+  color: #FFFFFF;
+  background-color: rgb(43 94 94 / 50%);
+}
+
+input[type="radio"]:checked+label {
+  border-bottom: 2px solid rgba(0,0,0,1);
+  background-color: $background;
+}
+
+.noshow {
+  display: none;
+}
+
+#list {
+  width: 96vh;
+  margin: 10vh 0;
+}
+
+#list div {
+  margin: 1vh 1vh;
+  padding: 1vh 1vh;
+  clear: both;
+  float: left;
+  background-color: $button-hover;
+}
+
+#list div:hover {
+  color: #FFFFFF;
+}
+
+#list div.read {
+  float: right;
+  background-color: $selected;
+  color: #E1EFFF;
+  border-radius: 2vh;
+}
