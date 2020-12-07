@@ -133,6 +133,8 @@ function createCard() {
         cell.style.backgroundSize = "cover";
         cell.style.backgroundPosition = "center center";
         cell.style.backgroundRepeat = "no-repeat";
+        cell.style.color = "rgba(0,0,0,0)";
+        cell.innerHTML = "City of Bellevue Free Space 🙂";
       }
       else {
         let index = getIndex(items);
@@ -169,6 +171,7 @@ function cellOnClick() {
 
 function youWon(els) {
   w5 = document.getElementById('winning5');
+  w5.innerHTML = '';
   for (let el of els) {
     let li = document.createElement('li')
     li.innerHTML = el.innerHTML;
