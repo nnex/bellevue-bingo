@@ -154,21 +154,26 @@ function createCard() {
 }
 
 function cellOnClick() {
-  console.log(this);
   this.classList.toggle("selected");
   for (i=0; i<5; i++) {
     let col = document.getElementsByClassName('column'+i+' selected')
-    if (col.length === 5) { youWon(); }
+    if (col.length === 5) { youWon(col); return; }
     let row = document.getElementsByClassName('row'+i+' selected')
-    if (row.length === 5) { youWon(); }
+    if (row.length === 5) { youWon(row); return; }
   }
   let ddr = document.getElementsByClassName('diagonal-dr'+' selected')
-  if (ddr.length === 5) { youWon(); }
+  if (ddr.length === 5) { youWon(ddr); return; }
   let dur = document.getElementsByClassName('diagonal-ur'+' selected')
-  if (dur.length === 5) { youWon(); }
+  if (dur.length === 5) { youWon(dur); return; }
 }
 
-function youWon() {
+function youWon(els) {
+  w5 = document.getElementById('winning5');
+  for (let el of els) {
+    let li = document.createElement('li')
+    li.innerHTML = el.innerHTML;
+    w5.appendChild(li);
+  }
   let modal = document.getElementById('bingo-modal');
   modal.classList.toggle('shown');
 }

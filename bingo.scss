@@ -1,6 +1,7 @@
 $background: rgba(100, 140, 140, 0.5);
 $selected: rgba(0.3,0.3,0.3,0.6);
 $button-hover: rgb(43 94 94 / 50%);
+$button: rgba(100, 140, 140, 0.5);
 
 @function random_range($min, $max) {
   $rand: random();
@@ -179,18 +180,24 @@ input[type="radio"]:checked+label {
   padding: 1vh 1vh;
   clear: both;
   float: left;
-  background-color: $button-hover;
+  background-color: $button;
 }
 
 #list div:hover {
   color: #FFFFFF;
+  background-color: $button-hover;
 }
 
 #list div.read {
   float: right;
   background-color: $selected;
-  color: #E1EFFF;
-  border-radius: 2vh;
+  color: #DDD;
+  border-radius: 1vh;
+}
+
+#list div.read:hover {
+  color: #FFF;
+  padding: 1vh 4vh;
 }
 
 #bingo-modal {
@@ -200,7 +207,6 @@ input[type="radio"]:checked+label {
   right: 0;
   top: 0;
   bottom: 0;
-  font-size: 20vh;
   color: #B72;
   text-align: center;
   align-items: center;
@@ -209,20 +215,33 @@ input[type="radio"]:checked+label {
   background-color: rgba(20,28,40,.85);
   margin: 8vh;
   text-shadow: 0 0 1vh #B72, 0 0 2vh #000;
+  flex-direction: column;
+}
+
+#bingo-modal div {
+  font-size: 20vh;
+}
+
+#bingo-modal div, #bingo-midal ol {
+  display: block;
 }
 
 #bingo-modal.shown {
   display: flex;
   opacity: 0;
-  animation: fadeIntoFrame 1s forwards, glow 3.325s infinite;
+  animation: fadeIntoFrame .8s forwards, glow 7s infinite;
 }
 
 @keyframes glow {
   50% {
-    box-shadow: 0 0 35vh 5vh #FA7;
+    box-shadow: 0 0 30vh 0vh #FA7;
     color: #FA7;
     text-shadow: 0 0 1vh #FA7, 0 0 3vh #000;
   }
+}
+
+li {
+  text-align: left;
 }
 
 @keyframes fadeIntoFrame {
