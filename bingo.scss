@@ -173,6 +173,12 @@ input[type="radio"]:checked+label {
   width: 96vh;
   margin: 10vh 0;
   overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#list::-webkit-scrollbar {
+  display: none;
 }
 
 #list div {
@@ -229,11 +235,16 @@ input[type="radio"]:checked+label {
 #bingo-modal.shown {
   display: flex;
   opacity: 0;
-  animation: fadeIntoFrame .8s forwards, glow 7s infinite;
+  animation: fadeIntoFrame .8s forwards, glow 4s infinite;
 }
 
 @keyframes glow {
-  50% {
+  30% {
+    box-shadow: 0 0 30vh 0vh #FA7;
+    color: #FA7;
+    text-shadow: 0 0 1vh #FA7, 0 0 3vh #000;
+  }
+  75% {
     box-shadow: 0 0 30vh 0vh #FA7;
     color: #FA7;
     text-shadow: 0 0 1vh #FA7, 0 0 3vh #000;

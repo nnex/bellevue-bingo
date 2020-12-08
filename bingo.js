@@ -247,8 +247,6 @@ function createGame() {
 
 function reset() {
   document.getElementById("bingo-modal").classList.remove("shown");
-  newCard();
-  newList();
 }
 
 if (document.addEventListener) document.addEventListener("DOMContentLoaded", createGame, false);
