@@ -2,10 +2,11 @@ var workItemList = [
   "Has worked for COB for 5+ years",
   "Has worked for COB for less than 5 years",
   "Donated to the holiday drive this year",
-  "Has said, “sorry I was on mute” in a meeting today",
+  "Has said, 'sorry I was on mute' in a meeting this week",
   "Has attended more than 3 meetings today already",
-  "Has said, “can everyone see my screen?” today",
+  "Has said, 'can everyone see my screen?' today",
   "Always uses a custom background image",
+  "Has never customized their virtual meeting background image",
   "Has dialed in rather than joined a virtual meeting this week",
   "Has dropped a virtual meeting call this week",
   "Went over a virtual meeting time today",
@@ -25,7 +26,8 @@ var workItemList = [
   "Misses seeing everyone at the office",
   "Has been in a meeting when everyone starts talking at once",
   "Has done the laundry while on a call",
-  "Has not been in City Hall since March"
+  "Has not been in City Hall since March",
+  "Has told a colleague they were on mute in a meeting this week"
 ];
 
 var holidayItemList = [
@@ -40,21 +42,32 @@ var holidayItemList = [
   "Decorates more than 1 tree",
   "Can whistle 10 seconds of any holiday song that others recognize",
   "Has an annual holiday tradition",
-  "Self-described Scrooge",
+  "Is a self-described Scrooge",
   "Watched a holiday movie this year already",
   "Loves the holidays",
   "Has an unusual tradition",
   "Has a holiday disaster story",
-  "Loves holiday meal",
+  "Loves a big holiday meal",
   "Has celebrated the holidays in another country",
   "Has worked retail on Black Friday",
   "Has attended a Friends&shygiving",
-  "Loves leftovers",
-  "Dines out / Caters holiday meals",
+  "Loves holiday leftovers",
+  "Dines out / caters holiday meals",
   "Will demonstrate their best Turkey impression",
   "Goes Black Friday / Cyber Monday shopping",
   "Prefers apple over pumpkin pie",
-  "Mails holiday cards"
+  "Sends holiday cards",
+  "Typically goes caroling over the holiday",
+  "Celebrated Diwali this year",
+  "Knows how many days are in Diwali",
+  "Started celebrating Christmas in September",
+  "Celebrates Chinese New Year in the spring",
+  "Celebrates Hanukkah / Chanukah",
+  "Will share a holiday joke",
+  "Did something spontaneous last holiday",
+  "Owns several holiday sweaters",
+  "Prefers Secret Santa to White Elephant",
+  "Prefers White Elephant to Secret Santa"
 ];
 
 var personalItemList = [
@@ -88,7 +101,32 @@ var personalItemList = [
   "Went camping this year",
   "Likes eggnog",
   "Skis or snowboards",
-  "Driven over the Washington passes this year"
+  "Driven over the Washington passes this year",
+  "Is or their partner is pregnant / expecting",
+  "Knows how to weld",
+  "Has built a house or structure",
+  "Knows all the words to 'Let It Go' from Frozen",
+  "Knows all the words to 'My Shot' from Hamilton",
+  "Has a signature Karaoke song",
+  "Has seen two or more Ken Burns documentaries",
+  "Has volunteered at a radio/tv membership pledge drive",
+  "Has gone clamming or tide pooling on the coast",
+  "Has lived in 5 states or more",
+  "Was once in a musical group",
+  "Owns a kayak",
+  "Owns a paddle board",
+  "Owns a vintage / classic car",
+  "Attended a sporting event at the King Dome",
+  "Attended a sporting event at Key Arena",
+  "Prefers the beach to the mountains",
+  "Prefers the mountains to the beach",
+  "Remembers the last restaurant they dined out at",
+  "Will name the last tv show they binge-watched",
+  "Prefers the country to the city",
+  "Prefers the city to the country",
+  "Plans to retire within the next 5 years",
+  "Is planning a long vacation when the pandemic ends",
+  "Had a worse year than 2020"
 ];
 
 function getIndex(list) {
